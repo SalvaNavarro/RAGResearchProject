@@ -4,6 +4,8 @@ A research prototype exploring how **Retrieval-Augmented Generation (RAG)** can 
 
 The system combines semantic search across **project text and imagery** with locally hosted language models to answer natural-language questions using retrieved project context. A Flask web interface presents answers alongside links to relevant architectural projects.
 
+🎥 **[Watch the Project Demo (YouTube)](https://youtu.be/QoHz8BOowLI)**
+
 ## Main Features
 
 - **Multimodal retrieval:** Separate ChromaDB collections for text, images and image captions, with configurable text-only, image-only and combined retrieval modes.
