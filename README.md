@@ -1,45 +1,77 @@
-# Introduction
+# Multimodal RAG for Architectural Knowledge Management
 
-A Python solution, part of the PE7046 Research Project module at Northumbria University (NU),
-built to research the application of RAG systems for knowledge management at
-large architecture practices. A Makefile is included with the main commands
-to set up and run the solution.
+A research prototype exploring how **Retrieval-Augmented Generation (RAG)** can make architectural project knowledge easier to discover and reuse across large design practices. Built for the **PE7046 Research Project** module of the MSc Computer Science with Artificial Intelligence at Northumbria University.
 
-# Prerequisites
+The system combines semantic search across **project text and imagery** with locally hosted language models to answer natural-language questions using retrieved project context. A Flask web interface presents answers alongside links to relevant architectural projects.
 
-The project Python's environment uses conda manager, and mamba is recommended for faster installation.
-Makefile uses mamba commands, which can be manually switched to conda commands if mamba is not available.
+## Main Features
 
-The system requires the software Ollama to be installed and running before the next steps
-can proceed. This can be downloaded from https://ollama.com/download
+- **Multimodal retrieval:** Separate ChromaDB collections for text, images and image captions, with configurable text-only, image-only and combined retrieval modes.
+- **Document ingestion:** Utilities for collecting source material, extracting content from PDFs, preparing architectural project data and chunking text for vector indexing.
+- **Semantic search:** Ollama text embeddings and OpenCLIP image embeddings to retrieve relevant project information.
+- **Image understanding:** BLIP-based image caption generation and visual question answering (VQA) to incorporate visual information into retrieval.
+- **Grounded answer generation:** Locally served LLMs via Ollama generate answers from retrieved context; optional query rewriting improves retrieval queries.
+- **Retrieval refinement:** Configurable top-k selection, modality weighting and CrossEncoder reranking.
+- **Web application:** Flask-based conversational interface with project thumbnails and project-detail pages linked to retrieved sources.
+- **Evaluation and testing:** Dedicated modules for retrieval/generation evaluation, baseline and benchmark comparisons, profiling and automated tests.
 
-# Preparing the environment
+## Technology Stack
 
-Please use command env-create to create the conda environment. This will install the
-packages specified on the following files:
+| Area | Technologies |
+| --- | --- |
+| Backend / web | Python, Flask, SQLAlchemy, SQLite |
+| LLM inference | Ollama, LangChain |
+| Vector search | ChromaDB |
+| Text and image embeddings | Ollama embeddings, OpenCLIP |
+| Computer vision | BLIP, Hugging Face Transformers, PyTorch |
+| Reranking | Sentence Transformers CrossEncoder |
+| Document processing | PyMuPDF, LangChain text splitters |
+| Testing | pytest |
 
-1. environment.yml -> holds the specification for all the main conda packages
-2. requirements.txt -> will be called automatically from environment.yml
+## How It Works
 
-# How to use
+1. **Prepare data:** Collect architectural project material and extract text and images from source documents.
+2. **Index content:** Split text into chunks, generate embeddings and populate persistent ChromaDB collections for text, images and captions.
+3. **Retrieve evidence:** Embed the user's question and search the selected modality collections; optionally rewrite the query and rerank retrieved candidates.
+4. **Generate an answer:** Supply the retrieved context to a local LLM with instructions to answer from that evidence.
+5. **Explore sources:** Display the answer and associated architectural projects through the Flask interface.
 
-On a first run, modules should be executed in this order, for all databases to get populated:
+## Repository Structure
 
-1. utility.scraper
-2. utility.db_setup
-3. utility.data_analysis
-4. services.rag (reset==true)
-5. app
+- `services/rag/` — RAG orchestration, retrieval, generation, embeddings, captions, VQA and reranking.
+- `app/` — Flask routes, templates, UI assets and project database access.
+- `utility/scraper/` — Source collection and PDF generation.
+- `utility/db_setup/` — Project database setup and PDF extraction.
+- `utility/data_analysis/` — Text and semantic data analysis.
+- `utility/rag_evaluation/` — Evaluation metrics, benchmarks and profiling.
+- `tests/` — Automated tests for core RAG components.
+- `Makefile` — Environment, setup, execution and evaluation commands.
 
-Please refer to Makefile commands "setup", then "run" for a first run of the project.
+## Setup and Usage
 
-The services.rag module will run inside the app module.
-The services.rag_evaluation module can be run separately.
-A test suite that checks essential functionality of the rag module is included inside the tests folder.
+The project uses a **Conda/Mamba** environment and requires **Ollama** to be installed and running. Model files and project data must be available locally. The primary environment targets CUDA; a separate CPU environment definition is provided but is not fully tested.
 
-# Acknowledgements
+```bash
+# Create the environment (Mamba required for this command)
+make env-create
 
-Author: Salvador Cristobal Navarro Perez
-Supervisor: Keerthana Jaganathan, NU
-Second marker :Abbas Mehrabidavoodabadi, NU
-Module tutor: Dr Ian Watson, NU
+# Activate the environment
+conda activate PE7046
+
+# Prepare data and build the project/vector databases
+make setup
+
+# Launch the Flask application
+make run
+```
+
+Additional commands include `make da` for data analysis, `make eval` for RAG evaluation and `pytest` for the test suite. See the `Makefile` for alternative setup and benchmarking commands.
+
+## Research Context
+
+The project investigates the opportunities and limitations of using **local, multimodal RAG** to support knowledge retrieval in architecture, including the contribution of image-based retrieval, query refinement and reranking. It is a **research prototype**, not a production deployment.
+
+**Author:** Salvador Cristobal Navarro Perez  
+**Supervisor:** Keerthana Jaganathan, Northumbria University  
+**Second marker:** Abbas Mehrabidavoodabadi, Northumbria University  
+**Module tutor:** Dr Ian Watson, Northumbria University
