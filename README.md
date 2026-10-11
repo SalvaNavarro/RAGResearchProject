@@ -6,6 +6,8 @@ The system combines semantic search across **project text and imagery** with loc
 
 🎥 **[Watch the Project Demo (YouTube)](https://youtu.be/QoHz8BOowLI)**
 
+📄 **[Read the Full Research Report (PDF)](report/w23051337-PE7046-Research-Project-Salvador-Navarro.pdf)**
+
 ## Main Features
 
 - **Multimodal retrieval:** Separate ChromaDB collections for text, images and image captions, with configurable text-only, image-only and combined retrieval modes.
@@ -77,5 +79,3 @@ The project investigates the opportunities and limitations of using **local, mul
 **Supervisor:** Keerthana Jaganathan, Northumbria University  
 **Second marker:** Abbas Mehrabidavoodabadi, Northumbria University  
 **Module tutor:** Dr Ian Watson, Northumbria University
-
-📄 **[Read the Full Research Report (PDF)](report/w23051337-PE7046-Research-Project-Salvador-Navarro.pdf)**
