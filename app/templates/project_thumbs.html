@@ -1,0 +1,21 @@
+<!--Small snippet included in rag.html, dynamically updates thumbnails  -->
+{% for image, proj_id, name, category in data %}
+<div class="mb-4 overflow-hidden shadow-lg">
+  <a href="{{ url_for('main.project_generic', id=proj_id) }}">
+    <div class="relative">
+      <img
+        src="{{ url_for('static', filename=image) }}"
+        alt="{{ image }}"
+        class="block h-auto w-full object-cover"
+      />
+
+      <div
+        id="thumb-label"
+        class="absolute bottom-0 left-0 z-10 flex items-center bg-black bg-opacity-75 px-3 py-1 text-sm text-white"
+      >
+        <h4 class="flex items-center">{{ name }}</h4>
+      </div>
+    </div>
+  </a>
+</div>
+{% endfor %}

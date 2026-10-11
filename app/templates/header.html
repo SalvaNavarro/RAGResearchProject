@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block header %}
+
+<!-- Header -->
+<header class="flex h-[7rem] w-full items-center justify-between px-10">
+  <!-- Logo -->
+  <a href="{{ url_for('main.rag')}}" class="">
+    <h1 class="text-4xl font-semibold text-black">
+      <span class="font-light">AI</span> Knowledge Base
+    </h1>
+  </a>
+
+  <!-- Nav menu-->
+  <!-- <nav class="text-xl font-light text-black">
+    <a href="{{ url_for('main.rag')}}" class="">Home</a>
+  </nav> -->
+</header>
+{% endblock %}

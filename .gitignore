@@ -1,0 +1,19 @@
+# python compiled and pytest
+__pycache__/
+.pytest_cache/
+
+# flask:
+instance/
+
+# environments, config
+.env
+.prettierrc.json
+
+# .vscode folder / .bin files
+.vscode/
+.VSCodeCounter/
+*.bin
+
+# other custom folders and files
+app/static/projects/
+tempCodeRunnerFile.py

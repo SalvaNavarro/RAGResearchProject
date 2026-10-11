@@ -1,0 +1,26 @@
+<!--Base template with head and page end, filled in with Jinja2 templates-->
+<!--Page start-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>AI Knowledge Base</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Salvador Navarro Perez" />
+
+    <!-- CDN to be used on dev/research stage only, 
+        for production tailwind CSS would need to be installed -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- JS chat script import. type="module" automatically defers JS load -->
+    <script type="module" src="../static/js/functions.js"></script>
+    <script type="module" src="../static/js/main.js"></script>
+  </head>
+
+  <!--Actual page content-->
+  <body class="h-screen antialiased">
+    {% block header %} {% endblock %} {% block content %} {% endblock %} {% block footer %} {%
+    endblock %}
+  </body>
+</html>
+<!--Page end-->

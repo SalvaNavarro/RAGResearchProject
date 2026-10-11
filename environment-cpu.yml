@@ -1,0 +1,42 @@
+name: PE7046
+
+channels:
+  - conda-forge
+
+dependencies:
+  # general
+  - python=3.11
+  - pip
+  - ipykernel
+  - pytest
+
+  # web
+  - flask
+  - flask-sqlalchemy
+
+  # RAG core
+  - langchain
+  - langchain-community
+  - langchain-experimental
+  - chromadb
+  - sentence-transformers
+  - sentencepiece
+  - evaluate
+  - ragas
+  - optuna # optimisation framework
+
+  # data & utils
+  - numpy
+  - pandas
+  - beautifulsoup4
+  - pillow
+  - pypdf
+  - reportlab
+  - wordcloud
+  - absl-py
+  - nltk
+  - rouge-score
+
+  # packages/versions not available on conda
+  - pip:
+      - -r requirements-cpu.txt
