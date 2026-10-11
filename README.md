@@ -75,3 +75,5 @@ The project investigates the opportunities and limitations of using **local, mul
 **Supervisor:** Keerthana Jaganathan, Northumbria University  
 **Second marker:** Abbas Mehrabidavoodabadi, Northumbria University  
 **Module tutor:** Dr Ian Watson, Northumbria University
+
+📄 **[Read the Full Research Report (PDF)](report/w23051337-PE7046-Research-Project-Salvador-Navarro.pdf)**
