@@ -8,6 +8,27 @@ The system combines semantic search across **project text and imagery** with loc
 
 📄 **[Read the Full Research Report (PDF)](report/w23051337-PE7046-Research-Project-Salvador-Navarro.pdf)**
 
+## Application Preview
+
+### RAG Home Page
+
+![RAG home page with chat box](preview/s-01.jpg)
+
+### Query Results Page
+
+![Query and results](preview/s-02.jpg)
+
+### App Architecture
+
+Highlighting the identified areas of opportunity for performance gains.
+
+![General app architecture](preview/s-03.jpg)
+
+### RAG Service Architecture
+
+![RAG service architecture](preview/s-04.jpg)
+
+
 ## Main Features
 
 - **Multimodal retrieval:** Separate ChromaDB collections for text, images and image captions, with configurable text-only, image-only and combined retrieval modes.
